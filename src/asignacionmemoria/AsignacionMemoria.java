@@ -1,6 +1,6 @@
 package asignacionmemoria;
 
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class AsignacionMemoria {
@@ -19,11 +19,11 @@ public class AsignacionMemoria {
    /*Este procedimient llena el vector con numeros random*/
     private static void llenarVector(int[] Vector) {
 
-        Random random = new Random();
+      
 
         for (int i = 0; i < Vector.length; i++) {
 
-            Vector[i] = random.nextInt(50); //Este es el metodo para llenar el vector con numeros random
+            Vector[i] =  (int) (Math.random() * 50 + 1); //Este es el metodo para llenar el vector con numeros random
 
         }
 
@@ -83,6 +83,10 @@ public class AsignacionMemoria {
                     
                     Vector[i] = 0; //Se vuelve 0
                     break;
+                }else if(proceso > Vector[i]){
+                   
+                    
+                    
                 }
 
             }
