@@ -98,9 +98,23 @@ public class AsignacionMemoria {
                 
                 do{
                     suma += Vector[i];
+                    if (suma > proceso) {
+                        
+                        
+                        
+                    }
+                    
+                    if (i > Vector.length) {
+                        i=0;
+                        compactacionVectorRes(i, VectorRespaldo);
+                    }
+                    
+                    
+                    
                 }while(suma < proceso);                
-                break;
             }
+            
+            
         }
 
     }
@@ -119,6 +133,13 @@ public class AsignacionMemoria {
         }
 
         return resultado;
+    }
+
+    private static void compactacionVectorRes(int i, int[] VectorRespaldo) {
+        
+        
+        
+        
     }
 
 }
