@@ -72,8 +72,12 @@ public class AsignacionMemoria {
                     System.out.println(Arrays.toString(VectorRespaldo));
                     Vector[i] = 0; //Se vuelve 0
                     break;
-                } else{
-
+                } 
+                    
+                if (proceso > Vector[i] && i == Vector.length - 1) {
+                    System.out.println(posicion);
+                    System.out.println(i);
+                    
                     compactacionVector(Comprobar, VectorRespaldo, Vector, posicion, proceso);
 
                 }
@@ -92,29 +96,24 @@ public class AsignacionMemoria {
     private static void compactacionVector(boolean Comprobar, int[] VectorRespaldo, int[] Vector, int posicion, int proceso) {
 
         int suma = 0;
-        
+
         if (Comprobar == false) {
             for (int i = posicion; i < Vector.length; i++) {
-                
-                do{
+
+                do {
                     suma += Vector[i];
                     if (suma > proceso) {
-                        
-                        
-                        
+
                     }
-                    
+
                     if (i > Vector.length) {
-                        i=0;
+                        i = 0;
                         compactacionVectorRes(i, VectorRespaldo);
                     }
-                    
-                    
-                    
-                }while(suma < proceso);                
+
+                } while (suma < proceso);
             }
-            
-            
+
         }
 
     }
@@ -136,10 +135,7 @@ public class AsignacionMemoria {
     }
 
     private static void compactacionVectorRes(int i, int[] VectorRespaldo) {
-        
-        
-        
-        
+
     }
 
 }
