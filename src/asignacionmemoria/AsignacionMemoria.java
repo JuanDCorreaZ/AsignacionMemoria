@@ -94,7 +94,7 @@ public class AsignacionMemoria {
     }
 
     private static void compactacionVector(boolean Comprobar, int[] VectorRespaldo, int[] Vector, int posicion, int proceso) {
-        int suma = 0;
+        int suma = 0,ult=0;
         int asignada[] = new int[20];
         if (Comprobar == false) {
             for (int i = posicion; i < Vector.length; i++) {
@@ -120,29 +120,32 @@ public class AsignacionMemoria {
 
                 }
             }
-            System.out.println("la suma es: " + suma);//muestra la suma de las pocisiones en memoria
-            System.out.println("La memoria solicitada fue: " + proceso); //Se muestra la memoria solicitada
-            System.out.print("La memoria que se asignó fue: ");
-            for (int i = 0; i < asignada.length - 1; i++) {
-                if (i == 0 && asignada[0] == 0) {
-                    System.out.print(asignada[i] + ", ");
+                System.out.println("la suma es: " + suma);//muestra la suma de las pocisiones en memoria
+                System.out.println("La memoria solicitada fue: " + proceso); //Se muestra la memoria solicitada
+                System.out.print("La memoria que se asignó fue: ");
+                for (int i = 0; i < asignada.length - 1; i++) {
+                   /* if (i == 0 && asignada[0] == 0) {
+                        System.out.print(asignada[i] + ", ");
+                    }*/
+                    if (asignada[i] > 0) {
+                        System.out.print(asignada[i] + ", ");
+                    }
                 }
-                if (asignada[i] > 0) {
-                    System.out.print(asignada[i] + ", ");
-                }
-            }
 //                System.out.println(Arrays.toString(VectorRespaldo));
+        }else{
+            sumarVectorRespaldo(VectorRespaldo, suma, proceso, Vector, asignada);
         }
     }
 
     private static void sumarVectorRespaldo(int[] VectorRespaldo, int suma, int proceso, int Vector[], int asignada[]) {
+        System.out.println("asignada"+Arrays.toString(asignada));
         for (int i = 0; i < VectorRespaldo.length; i++) {
             if (VectorRespaldo[i] != 0) {
                 suma += VectorRespaldo[i];
                 asignada[i] = i;
                 if (suma < proceso) {
                     VectorRespaldo[i] = 0;
-
+                    
                 } else if (suma >= proceso) {
 
                     System.out.println(Arrays.toString(VectorRespaldo));
@@ -151,14 +154,14 @@ public class AsignacionMemoria {
             }
 
         }
-        System.out.println(Arrays.toString(VectorRespaldo));
+        System.out.println(Arrays.toString(Vector));
         System.out.println("la suma es: " + suma);//muestra la suma de las pocisiones en memoria
         System.out.println("La memoria solicitada fue: " + proceso); //Se muestra la memoria solicitada
         System.out.print("La memoria que se asignó fue: ");
         for (int i = 0; i < asignada.length - 1; i++) {
-                if (i == 0 && asignada[0] == 0) {
+               /* if (i == 0 && asignada[0] == 0) {
                     System.out.print(asignada[i] + ", ");
-                }
+                }*/
                 if (asignada[i] > 0) {
                     System.out.print(asignada[i] + ", ");
                 }
